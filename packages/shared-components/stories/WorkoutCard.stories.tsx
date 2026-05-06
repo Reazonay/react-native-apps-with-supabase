@@ -3,7 +3,7 @@ import React from 'react';
 import { WorkoutCard } from '../src';
 
 const meta = {
-  title: 'Workout/WorkoutCard',
+  title: 'Molecules/WorkoutCard',
   component: WorkoutCard,
   args: {
     title: 'Full Body Session',

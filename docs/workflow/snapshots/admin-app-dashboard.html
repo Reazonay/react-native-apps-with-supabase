@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Admin App - Dashboard</title>
+    <style>
+      :root {
+        --kinetic-background: #141408;
+        --kinetic-surface: #212013;
+        --kinetic-surface-variant: #363527;
+        --kinetic-outline: #949277;
+        --kinetic-on-surface: #e6e3ce;
+        --kinetic-primary: #ede900;
+        --kinetic-error: #ffb4ab;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, sans-serif;
+        background: #fffaf2;
+        color: #111827;
+      }
+
+      .page {
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        max-width: 820px;
+      }
+
+      .nav-row {
+        display: flex;
+        gap: 12px;
+      }
+
+      .nav-button {
+        border-radius: 999px;
+        border: 1px solid #d1d5db;
+        padding: 10px 16px;
+        background: #ffffff;
+        font-weight: 600;
+        color: #374151;
+      }
+
+      .nav-button.active {
+        background: #111827;
+        border-color: #111827;
+        color: #ffffff;
+      }
+
+      .heading {
+        font-size: 34px;
+        font-weight: 700;
+        color: #111827;
+        margin: 0;
+      }
+
+      .subheading {
+        font-size: 16px;
+        line-height: 24px;
+        color: #4b5563;
+        max-width: 720px;
+        margin: 0;
+      }
+
+      .grid {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        max-width: 720px;
+      }
+
+      .card {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .card-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #111827;
+        margin: 0;
+        flex: 1;
+      }
+
+      .badge {
+        background: #d1fae5;
+        border-radius: 999px;
+        padding: 6px 12px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #065f46;
+      }
+
+      .meta {
+        font-size: 14px;
+        color: #4b5563;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <nav class="nav-row">
+        <span class="nav-button active">Dashboard</span>
+        <span class="nav-button">Health</span>
+      </nav>
+
+      <h1 class="heading">Admin App</h1>
+      <p class="subheading">Web-Frontend fuer Planung, Kuration und Verwaltung von Workout-Inhalten.</p>
+
+      <section class="grid">
+        <article class="card">
+          <div class="card-header">
+            <h2 class="card-title">Starter Strength Plan</h2>
+            <span class="badge">Beginner</span>
+          </div>
+          <p class="meta">30 min</p>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <h2 class="card-title">Performance Split</h2>
+            <span class="badge">Advanced</span>
+          </div>
+          <p class="meta">55 min</p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

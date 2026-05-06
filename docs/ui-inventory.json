@@ -1,0 +1,125 @@
+{
+  "metadata": {
+    "generatedOn": "2026-05-06",
+    "scope": "monorepo"
+  },
+  "apps": [
+    {
+      "name": "workout-app",
+      "path": "apps/workout-app",
+      "entry": "apps/workout-app/App.tsx",
+      "type": "react-native"
+    },
+    {
+      "name": "admin-app",
+      "path": "apps/admin-app",
+      "entry": "apps/admin-app/App.tsx",
+      "type": "react-native-web"
+    }
+  ],
+  "packages": [
+    {
+      "name": "shared-components",
+      "path": "packages/shared-components",
+      "components": [
+        {
+          "name": "KineticText",
+          "path": "packages/shared-components/src/atoms/KineticText.tsx",
+          "atomicLevel": "atom",
+          "stories": [
+            "packages/shared-components/stories/KineticText.stories.tsx"
+          ]
+        },
+        {
+          "name": "KineticButton",
+          "path": "packages/shared-components/src/atoms/KineticButton.tsx",
+          "atomicLevel": "atom",
+          "stories": [
+            "packages/shared-components/stories/KineticButton.stories.tsx"
+          ]
+        },
+        {
+          "name": "KineticBadge",
+          "path": "packages/shared-components/src/atoms/KineticBadge.tsx",
+          "atomicLevel": "atom",
+          "stories": [
+            "packages/shared-components/stories/KineticBadge.stories.tsx",
+            "packages/shared-components/stories/StatusPill.stories.tsx"
+          ]
+        },
+        {
+          "name": "KineticCard",
+          "path": "packages/shared-components/src/atoms/KineticCard.tsx",
+          "atomicLevel": "atom",
+          "stories": [
+            "packages/shared-components/stories/KineticCard.stories.tsx"
+          ]
+        },
+        {
+          "name": "KineticInput",
+          "path": "packages/shared-components/src/atoms/KineticInput.tsx",
+          "atomicLevel": "atom",
+          "stories": [
+            "packages/shared-components/stories/KineticInput.stories.tsx"
+          ]
+        },
+        {
+          "name": "WorkoutCard",
+          "path": "packages/shared-components/src/WorkoutCard.tsx",
+          "atomicLevel": "molecule",
+          "stories": [
+            "packages/shared-components/stories/WorkoutCard.stories.tsx"
+          ]
+        }
+      ],
+      "tokens": [
+        "packages/shared-components/src/kineticTheme.ts",
+        "packages/shared-components/src/uiTokens.ts"
+      ]
+    },
+    {
+      "name": "shared-types",
+      "path": "packages/shared-types",
+      "exports": [
+        "WorkoutDifficulty",
+        "WorkoutSummary"
+      ]
+    },
+    {
+      "name": "shared-utils",
+      "path": "packages/shared-utils",
+      "exports": [
+        "formatWorkoutDuration"
+      ]
+    }
+  ],
+  "backend": [
+    {
+      "name": "supabase-edge-functions",
+      "path": "supabase/functions",
+      "functions": [
+        "supabase/functions/client-connection-check/index.ts"
+      ]
+    }
+  ],
+  "stories": [
+    "packages/shared-components/stories/WorkoutCard.stories.tsx",
+    "packages/shared-components/stories/KineticText.stories.tsx",
+    "packages/shared-components/stories/KineticButton.stories.tsx",
+    "packages/shared-components/stories/KineticBadge.stories.tsx",
+    "packages/shared-components/stories/KineticCard.stories.tsx",
+    "packages/shared-components/stories/KineticInput.stories.tsx",
+    "packages/shared-components/stories/FormField.stories.tsx",
+    "packages/shared-components/stories/StatusPill.stories.tsx",
+    "packages/shared-components/stories/NavigationPills.stories.tsx",
+    "packages/shared-components/stories/HealthStatusRow.stories.tsx",
+    "packages/shared-components/stories/HealthCard.stories.tsx",
+    "packages/shared-components/stories/WorkoutList.stories.tsx",
+    "packages/shared-components/stories/AdminWorkoutGrid.stories.tsx",
+    "packages/shared-components/stories/DashboardTemplate.stories.tsx",
+    "packages/shared-components/stories/HealthTemplate.stories.tsx",
+    "packages/shared-components/stories/RegisterCard.stories.tsx",
+    "packages/shared-components/stories/RegisterTemplate.stories.tsx",
+    "packages/shared-components/stories/RegisterSuccessTemplate.stories.tsx"
+  ]
+}

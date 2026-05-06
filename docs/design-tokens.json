@@ -1,0 +1,158 @@
+{
+  "metadata": {
+    "sources": [
+      "packages/shared-components/src/kineticTheme.ts",
+      "packages/shared-components/src/uiTokens.ts"
+    ],
+    "generatedOn": "2026-05-06",
+    "version": "0.2.0"
+  },
+  "kineticTheme": {
+    "colors": {
+      "background": "#141408",
+      "surfaceContainerLow": "#1d1c10",
+      "surfaceContainer": "#212013",
+      "surfaceContainerHigh": "#2b2b1d",
+      "surfaceVariant": "#363527",
+      "surfaceBright": "#3b3a2b",
+      "outline": "#949277",
+      "outlineVariant": "#494832",
+      "onBackground": "#e6e3ce",
+      "onSurface": "#e6e3ce",
+      "onSurfaceVariant": "#cbc8ab",
+      "primary": "#ede900",
+      "primaryDim": "#d0cc00",
+      "onPrimary": "#1d1d00",
+      "secondary": "#a4c9ff",
+      "tertiary": "#99f1f3",
+      "error": "#ffb4ab"
+    },
+    "spacing": {
+      "xs": 8,
+      "sm": 12,
+      "md": 16,
+      "lg": 24,
+      "xl": 32,
+      "containerMargin": 24,
+      "inlineGap": 16,
+      "stackGap": 24,
+      "cardPadding": 16
+    },
+    "radius": {
+      "sm": 12,
+      "md": 16,
+      "lg": 24,
+      "xl": 32,
+      "pill": 9999
+    },
+    "typography": {
+      "displayXL": {
+        "fontSize": 32,
+        "lineHeight": 38,
+        "fontWeight": 700,
+        "letterSpacing": -0.64
+      },
+      "headlineLG": {
+        "fontSize": 24,
+        "lineHeight": 30,
+        "fontWeight": 700,
+        "letterSpacing": -0.24
+      },
+      "titleMD": {
+        "fontSize": 18,
+        "lineHeight": 22,
+        "fontWeight": 700
+      },
+      "bodyBase": {
+        "fontSize": 16,
+        "lineHeight": 24,
+        "fontWeight": 400
+      },
+      "bodySM": {
+        "fontSize": 14,
+        "lineHeight": 20,
+        "fontWeight": 500
+      },
+      "labelCaps": {
+        "fontSize": 10,
+        "lineHeight": 10,
+        "fontWeight": 700,
+        "letterSpacing": 0.5,
+        "textTransform": "uppercase"
+      }
+    }
+  },
+  "uiTheme": {
+    "colors": {
+      "backgroundWorkout": "#f4efe6",
+      "backgroundAdmin": "#fffaf2",
+      "surface": "#ffffff",
+      "surfaceBorder": "#e5e7eb",
+      "surfaceBorderStrong": "#d1d5db",
+      "textPrimary": "#111827",
+      "textSecondary": "#4b5563",
+      "textMuted": "#6b7280",
+      "navActive": "#111827",
+      "navInactive": "#374151",
+      "badgeSuccessBg": "#d1fae5",
+      "badgeSuccessText": "#065f46",
+      "statusLoadingBg": "#fef3c7",
+      "statusLoadingText": "#92400e",
+      "statusErrorBg": "#fee2e2",
+      "statusErrorText": "#991b1b",
+      "actionPrimary": "#0f766e",
+      "actionPrimaryText": "#ecfeff"
+    },
+    "spacing": {
+      "xs": 8,
+      "sm": 12,
+      "md": 16,
+      "lg": 20,
+      "xl": 24,
+      "xxl": 32,
+      "cardPadding": 20,
+      "cardGap": 12
+    },
+    "radius": {
+      "sm": 12,
+      "md": 16,
+      "lg": 20,
+      "xl": 24,
+      "pill": 9999
+    },
+    "typography": {
+      "headingXL": {
+        "fontSize": 32,
+        "lineHeight": 38,
+        "fontWeight": 700
+      },
+      "headingLG": {
+        "fontSize": 34,
+        "lineHeight": 40,
+        "fontWeight": 700
+      },
+      "subheading": {
+        "fontSize": 16,
+        "lineHeight": 24,
+        "fontWeight": 400
+      },
+      "title": {
+        "fontSize": 18,
+        "lineHeight": 22,
+        "fontWeight": 700
+      },
+      "body": {
+        "fontSize": 14,
+        "lineHeight": 20,
+        "fontWeight": 500
+      },
+      "labelCaps": {
+        "fontSize": 12,
+        "lineHeight": 14,
+        "fontWeight": 700,
+        "letterSpacing": 0.5,
+        "textTransform": "uppercase"
+      }
+    }
+  }
+}

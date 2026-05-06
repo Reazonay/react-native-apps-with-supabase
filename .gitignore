@@ -11,3 +11,4 @@ apps/*/dist/
 packages/*/dist/
 storybook-static/
 .env
+supabase/.temp/
