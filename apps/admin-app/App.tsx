@@ -1,5 +1,6 @@
+import { ApolloClient, ApolloProvider, InMemoryCache, gql, useQuery } from '@apollo/client';
 import { useEffect, useMemo, useState } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet } from 'react-native';
+import { Platform, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 
 import {
   AdminWorkoutGrid,
@@ -10,8 +11,9 @@ import {
   uiColors,
   uiSpacing
 } from '@workout/shared-components';
+import type { WorkoutSummary } from '@workout/shared-types';
 
-const adminPreview = [
+const adminPreview: WorkoutSummary[] = [
   {
     id: 'plan-001',
     title: 'Starter Strength Plan',
@@ -24,7 +26,18 @@ const adminPreview = [
     durationInMinutes: 55,
     difficulty: 'Advanced'
   }
-] as const;
+];
+
+const GET_ADMIN_WORKOUTS = gql`
+  query AdminWorkouts {
+    adminWorkouts {
+      id
+      title
+      durationInMinutes
+      difficulty
+    }
+  }
+`;
 
 type HealthStatus = 'idle' | 'loading' | 'healthy' | 'unhealthy';
 
@@ -49,21 +62,26 @@ function setPathname(pathname: string): void {
   maybeWindow.window.dispatchEvent(new Event('popstate'));
 }
 
-export default function App() {
+const graphqlUrl = process.env.EXPO_PUBLIC_GRAPHQL_URL;
+
+function getGraphqlUrl() {
+  if (graphqlUrl) {
+    return graphqlUrl;
+  }
+
+  if (Platform.OS === 'android') {
+    return 'http://10.0.2.2:4000/graphql';
+  }
+
+  return 'http://localhost:4000/graphql';
+}
+
+function AdminAppContent() {
   const [pathname, setPathnameState] = useState(getCurrentPathname());
   const [healthStatus, setHealthStatus] = useState<HealthStatus>('idle');
   const [healthMessage, setHealthMessage] = useState('Noch kein Check ausgefuehrt.');
 
-  const healthEndpoint = useMemo(() => {
-    const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
-
-    if (!supabaseUrl) {
-      return null;
-    }
-
-    return `${supabaseUrl}/functions/v1/client-connection-check`;
-  }, []);
-  const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY;
+  const healthEndpoint = useMemo(() => getGraphqlUrl(), []);
 
   useEffect(() => {
     const maybeWindow = globalThis as {
@@ -83,57 +101,46 @@ export default function App() {
   }, []);
 
   async function runHealthCheck() {
-    if (!healthEndpoint) {
-      setHealthStatus('unhealthy');
-      setHealthMessage('EXPO_PUBLIC_SUPABASE_URL fehlt. Bitte in der Admin-App konfigurieren.');
-      return;
-    }
-
-    if (!supabaseAnonKey) {
-      setHealthStatus('unhealthy');
-      setHealthMessage('EXPO_PUBLIC_SUPABASE_ANON_KEY fehlt. Bitte in der Admin-App konfigurieren.');
-      return;
-    }
-
     try {
       setHealthStatus('loading');
-      setHealthMessage('Verbindung wird geprueft...');
+      setHealthMessage('GraphQL wird geprueft...');
 
       const response = await fetch(healthEndpoint, {
-        method: 'GET',
+        method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          apikey: supabaseAnonKey,
-          Authorization: `Bearer ${supabaseAnonKey}`
-        }
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          query: 'query ServiceStatus { serviceStatus { ok message } }'
+        })
       });
 
-      const text = await response.text();
-      const payload = (() => {
-        try {
-          return JSON.parse(text) as { ok?: boolean; message?: string; error?: string };
-        } catch {
-          return null;
-        }
-      })();
+      const payload = (await response.json()) as {
+        data?: { serviceStatus?: { ok?: boolean; message?: string } };
+        errors?: Array<{ message?: string }>;
+      };
 
-      if (!response.ok || !payload?.ok) {
+      if (!response.ok || !payload.data?.serviceStatus?.ok) {
         setHealthStatus('unhealthy');
-        setHealthMessage(payload?.error ?? `Health-Check fehlgeschlagen (HTTP ${response.status}).`);
+        setHealthMessage(payload.errors?.[0]?.message ?? `Health-Check fehlgeschlagen (HTTP ${response.status}).`);
         return;
       }
 
       setHealthStatus('healthy');
-      setHealthMessage(payload?.message ?? 'Verbindung zur Edge Function ist gesund.');
+      setHealthMessage(payload.data.serviceStatus.message ?? 'GraphQL ist erreichbar.');
     } catch {
       setHealthStatus('unhealthy');
-      setHealthMessage('Verbindung konnte nicht hergestellt werden.');
+      setHealthMessage('GraphQL konnte nicht erreicht werden.');
     }
   }
 
   const isHealthPage = pathname === '/health';
   const statusLabel = healthStatus.toUpperCase();
   const statusTone = healthStatus === 'healthy' ? 'success' : healthStatus === 'unhealthy' ? 'error' : 'warning';
+  const { data: workoutsData } = useQuery<{ adminWorkouts: WorkoutSummary[] }>(GET_ADMIN_WORKOUTS, {
+    fetchPolicy: 'cache-first'
+  });
+  const adminWorkouts = workoutsData?.adminWorkouts?.length ? workoutsData.adminWorkouts : adminPreview;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -151,12 +158,12 @@ export default function App() {
               />
             }
           >
-            <AdminWorkoutGrid workouts={adminPreview} />
+            <AdminWorkoutGrid workouts={adminWorkouts} />
           </DashboardTemplate>
         ) : (
           <HealthTemplate
             title="Health Page"
-            subtitle="Prueft die Erreichbarkeit der Supabase Edge Function vom Admin-Client."
+            subtitle="Prueft die Erreichbarkeit des GraphQL-Servers vom Admin-Client."
             navigation={
               <NavigationPills
                 items={[
@@ -168,8 +175,8 @@ export default function App() {
             card={
               <HealthCard
                 title="Health Page"
-                description="Prueft die Erreichbarkeit der Supabase Edge Function vom Admin-Client."
-                endpoint={healthEndpoint ?? 'Nicht konfiguriert'}
+                description="Prueft die Erreichbarkeit des GraphQL-Servers vom Admin-Client."
+                endpoint={healthEndpoint}
                 statusLabel={statusLabel}
                 statusTone={statusTone}
                 message={healthMessage}
@@ -181,6 +188,21 @@ export default function App() {
         )}
       </ScrollView>
     </SafeAreaView>
+  );
+}
+
+export default function App() {
+  const client = useMemo(() => {
+    return new ApolloClient({
+      uri: getGraphqlUrl(),
+      cache: new InMemoryCache()
+    });
+  }, []);
+
+  return (
+    <ApolloProvider client={client}>
+      <AdminAppContent />
+    </ApolloProvider>
   );
 }
 

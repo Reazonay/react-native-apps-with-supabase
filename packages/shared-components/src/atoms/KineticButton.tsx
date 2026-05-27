@@ -16,12 +16,12 @@ export function KineticButton({ label, variant = 'primary', style, disabled, ...
     <Pressable
       {...props}
       disabled={disabled}
-      style={({ pressed }) => [
+      style={(state) => [
         styles.base,
         styles[variant],
-        pressed && !disabled && styles.pressed,
+        state.pressed && !disabled && styles.pressed,
         disabled && styles.disabled,
-        style
+        typeof style === 'function' ? style(state) : style
       ]}
     >
       <KineticText

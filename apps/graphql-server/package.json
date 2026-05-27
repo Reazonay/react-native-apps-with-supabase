@@ -1,0 +1,12 @@
+{
+  "name": "@workout/graphql-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node src/index.js"
+  },
+  "dependencies": {
+    "@apollo/server": "^5.5.1",
+    "graphql": "^16.8.1"
+  }
+}
