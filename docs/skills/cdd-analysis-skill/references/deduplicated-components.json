@@ -1,0 +1,1022 @@
+{
+  "metadata": {
+    "generated_on": "2026-06-10T08:05:38.167Z",
+    "script_version": "1.0.0",
+    "source_dir": "docs/workflow/snapshots/",
+    "total_elements": 66,
+    "canonical_elements": 21,
+    "duplicate_elements": 45
+  },
+  "processed_files": [
+    {
+      "file": "admin-app-dashboard.html",
+      "hash": "c4eeaa217f73610b"
+    },
+    {
+      "file": "admin-app-health.html",
+      "hash": "c95b2aa43d06c12e"
+    },
+    {
+      "file": "workout-app-dashboard.html",
+      "hash": "de987e7cc21a5002"
+    },
+    {
+      "file": "workout-app-health.html",
+      "hash": "60c2d8d44f2d2b85"
+    }
+  ],
+  "elements": [
+    {
+      "cdd-id": "tpl-page-templat-01",
+      "tag": "main",
+      "classes": [
+        "page"
+      ],
+      "level_hint": "template",
+      "component_hint": "PageTemplate",
+      "content_hash": "dace7dfb648f",
+      "source_file": "admin-app-dashboard.html",
+      "parent_cdd_id": null,
+      "duplicate_of": null,
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "mol-navigation-p-01",
+      "tag": "nav",
+      "classes": [
+        "nav-row"
+      ],
+      "level_hint": "molecule",
+      "component_hint": "NavigationPillGroup",
+      "content_hash": "3c2400f7f2b7",
+      "source_file": "admin-app-dashboard.html",
+      "parent_cdd_id": "tpl-page-templat-01",
+      "duplicate_of": null,
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-nav-button-01",
+      "tag": "span",
+      "classes": [
+        "nav-button",
+        "active"
+      ],
+      "level_hint": "atom",
+      "component_hint": "NavButton",
+      "content_hash": "82e8a3f713fd",
+      "source_file": "admin-app-dashboard.html",
+      "parent_cdd_id": "mol-navigation-p-01",
+      "duplicate_of": null,
+      "text_content": "Dashboard",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-nav-button-02",
+      "tag": "span",
+      "classes": [
+        "nav-button"
+      ],
+      "level_hint": "atom",
+      "component_hint": "NavButton",
+      "content_hash": "b740c4214aed",
+      "source_file": "admin-app-dashboard.html",
+      "parent_cdd_id": "mol-navigation-p-01",
+      "duplicate_of": null,
+      "text_content": "Health",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-heading-01",
+      "tag": "h1",
+      "classes": [
+        "heading"
+      ],
+      "level_hint": "atom",
+      "component_hint": "Heading",
+      "content_hash": "532ef29121d6",
+      "source_file": "admin-app-dashboard.html",
+      "parent_cdd_id": "tpl-page-templat-01",
+      "duplicate_of": null,
+      "text_content": "Admin App",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-body-text-01",
+      "tag": "p",
+      "classes": [
+        "subheading"
+      ],
+      "level_hint": "atom",
+      "component_hint": "BodyText",
+      "content_hash": "2d98828980f6",
+      "source_file": "admin-app-dashboard.html",
+      "parent_cdd_id": "tpl-page-templat-01",
+      "duplicate_of": null,
+      "text_content": "Web-Frontend fuer Planung, Kuration und Verwaltung von Workout-Inhalten.",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "org-admin-workou-01",
+      "tag": "section",
+      "classes": [
+        "grid"
+      ],
+      "level_hint": "organism",
+      "component_hint": "AdminWorkoutGrid",
+      "content_hash": "ca7f7cf92092",
+      "source_file": "admin-app-dashboard.html",
+      "parent_cdd_id": "tpl-page-templat-01",
+      "duplicate_of": null,
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "org-card-01",
+      "tag": "article",
+      "classes": [
+        "card"
+      ],
+      "level_hint": "organism",
+      "component_hint": "Card",
+      "content_hash": "47bbc0081c4a",
+      "source_file": "admin-app-dashboard.html",
+      "parent_cdd_id": "org-admin-workou-01",
+      "duplicate_of": null,
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "mol-workout-card-01",
+      "tag": "div",
+      "classes": [
+        "card-header"
+      ],
+      "level_hint": "molecule",
+      "component_hint": "WorkoutCardHeader",
+      "content_hash": "da1c3b3908ff",
+      "source_file": "admin-app-dashboard.html",
+      "parent_cdd_id": "org-card-01",
+      "duplicate_of": null,
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-heading-02",
+      "tag": "h2",
+      "classes": [
+        "card-title"
+      ],
+      "level_hint": "atom",
+      "component_hint": "Heading",
+      "content_hash": "5633dc98f742",
+      "source_file": "admin-app-dashboard.html",
+      "parent_cdd_id": "mol-workout-card-01",
+      "duplicate_of": null,
+      "text_content": "Starter Strength Plan",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-badge-01",
+      "tag": "span",
+      "classes": [
+        "badge"
+      ],
+      "level_hint": "atom",
+      "component_hint": "Badge",
+      "content_hash": "25d85fc22ad3",
+      "source_file": "admin-app-dashboard.html",
+      "parent_cdd_id": "mol-workout-card-01",
+      "duplicate_of": null,
+      "text_content": "Beginner",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-body-text-02",
+      "tag": "p",
+      "classes": [
+        "meta"
+      ],
+      "level_hint": "atom",
+      "component_hint": "BodyText",
+      "content_hash": "bdeeacf2b45f",
+      "source_file": "admin-app-dashboard.html",
+      "parent_cdd_id": "org-card-01",
+      "duplicate_of": null,
+      "text_content": "30 min",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "org-card-02",
+      "tag": "article",
+      "classes": [
+        "card"
+      ],
+      "level_hint": "organism",
+      "component_hint": "Card",
+      "content_hash": "47bbc0081c4a",
+      "source_file": "admin-app-dashboard.html",
+      "parent_cdd_id": "org-admin-workou-01",
+      "duplicate_of": "org-card-01",
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "mol-workout-card-02",
+      "tag": "div",
+      "classes": [
+        "card-header"
+      ],
+      "level_hint": "molecule",
+      "component_hint": "WorkoutCardHeader",
+      "content_hash": "da1c3b3908ff",
+      "source_file": "admin-app-dashboard.html",
+      "parent_cdd_id": "org-card-02",
+      "duplicate_of": "mol-workout-card-01",
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-heading-03",
+      "tag": "h2",
+      "classes": [
+        "card-title"
+      ],
+      "level_hint": "atom",
+      "component_hint": "Heading",
+      "content_hash": "5633dc98f742",
+      "source_file": "admin-app-dashboard.html",
+      "parent_cdd_id": "mol-workout-card-02",
+      "duplicate_of": "atm-heading-02",
+      "text_content": "Performance Split",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-badge-02",
+      "tag": "span",
+      "classes": [
+        "badge"
+      ],
+      "level_hint": "atom",
+      "component_hint": "Badge",
+      "content_hash": "25d85fc22ad3",
+      "source_file": "admin-app-dashboard.html",
+      "parent_cdd_id": "mol-workout-card-02",
+      "duplicate_of": "atm-badge-01",
+      "text_content": "Advanced",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-body-text-03",
+      "tag": "p",
+      "classes": [
+        "meta"
+      ],
+      "level_hint": "atom",
+      "component_hint": "BodyText",
+      "content_hash": "bdeeacf2b45f",
+      "source_file": "admin-app-dashboard.html",
+      "parent_cdd_id": "org-card-02",
+      "duplicate_of": "atm-body-text-02",
+      "text_content": "55 min",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "tpl-page-templat-01",
+      "tag": "main",
+      "classes": [
+        "page"
+      ],
+      "level_hint": "template",
+      "component_hint": "PageTemplate",
+      "content_hash": "dace7dfb648f",
+      "source_file": "admin-app-health.html",
+      "parent_cdd_id": null,
+      "duplicate_of": "tpl-page-templat-01",
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "mol-navigation-p-01",
+      "tag": "nav",
+      "classes": [
+        "nav-row"
+      ],
+      "level_hint": "molecule",
+      "component_hint": "NavigationPillGroup",
+      "content_hash": "3c2400f7f2b7",
+      "source_file": "admin-app-health.html",
+      "parent_cdd_id": "tpl-page-templat-01",
+      "duplicate_of": "mol-navigation-p-01",
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-nav-button-01",
+      "tag": "span",
+      "classes": [
+        "nav-button"
+      ],
+      "level_hint": "atom",
+      "component_hint": "NavButton",
+      "content_hash": "b740c4214aed",
+      "source_file": "admin-app-health.html",
+      "parent_cdd_id": "mol-navigation-p-01",
+      "duplicate_of": "atm-nav-button-02",
+      "text_content": "Dashboard",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-nav-button-02",
+      "tag": "span",
+      "classes": [
+        "nav-button",
+        "active"
+      ],
+      "level_hint": "atom",
+      "component_hint": "NavButton",
+      "content_hash": "82e8a3f713fd",
+      "source_file": "admin-app-health.html",
+      "parent_cdd_id": "mol-navigation-p-01",
+      "duplicate_of": "atm-nav-button-01",
+      "text_content": "Health",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "org-card-01",
+      "tag": "section",
+      "classes": [
+        "card"
+      ],
+      "level_hint": "organism",
+      "component_hint": "Card",
+      "content_hash": "837b847c637f",
+      "source_file": "admin-app-health.html",
+      "parent_cdd_id": "tpl-page-templat-01",
+      "duplicate_of": null,
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-heading-01",
+      "tag": "h1",
+      "classes": [
+        "heading"
+      ],
+      "level_hint": "atom",
+      "component_hint": "Heading",
+      "content_hash": "532ef29121d6",
+      "source_file": "admin-app-health.html",
+      "parent_cdd_id": "org-card-01",
+      "duplicate_of": "atm-heading-01",
+      "text_content": "Health Page",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-body-text-01",
+      "tag": "p",
+      "classes": [
+        "subheading"
+      ],
+      "level_hint": "atom",
+      "component_hint": "BodyText",
+      "content_hash": "2d98828980f6",
+      "source_file": "admin-app-health.html",
+      "parent_cdd_id": "org-card-01",
+      "duplicate_of": "atm-body-text-01",
+      "text_content": "Prueft die Erreichbarkeit der Supabase Edge Function vom Admin-Client.",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-unknown-01",
+      "tag": "div",
+      "classes": [],
+      "level_hint": "atom",
+      "component_hint": "Unknown",
+      "content_hash": "2d809a8eb567",
+      "source_file": "admin-app-health.html",
+      "parent_cdd_id": "org-card-01",
+      "duplicate_of": null,
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-label-caps-01",
+      "tag": "div",
+      "classes": [
+        "label"
+      ],
+      "level_hint": "atom",
+      "component_hint": "LabelCaps",
+      "content_hash": "b27141f8b330",
+      "source_file": "admin-app-health.html",
+      "parent_cdd_id": "atm-unknown-01",
+      "duplicate_of": null,
+      "text_content": "Endpoint",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-body-text-02",
+      "tag": "div",
+      "classes": [
+        "endpoint"
+      ],
+      "level_hint": "atom",
+      "component_hint": "BodyText",
+      "content_hash": "0386deb11562",
+      "source_file": "admin-app-health.html",
+      "parent_cdd_id": "atm-unknown-01",
+      "duplicate_of": null,
+      "text_content": "Nicht konfiguriert",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "mol-health-statu-01",
+      "tag": "div",
+      "classes": [
+        "status-row"
+      ],
+      "level_hint": "molecule",
+      "component_hint": "HealthStatusRow",
+      "content_hash": "ee6c7c3d0193",
+      "source_file": "admin-app-health.html",
+      "parent_cdd_id": "org-card-01",
+      "duplicate_of": null,
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-label-caps-02",
+      "tag": "div",
+      "classes": [
+        "label"
+      ],
+      "level_hint": "atom",
+      "component_hint": "LabelCaps",
+      "content_hash": "b27141f8b330",
+      "source_file": "admin-app-health.html",
+      "parent_cdd_id": "mol-health-statu-01",
+      "duplicate_of": "atm-label-caps-01",
+      "text_content": "Status",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-status-pill-01",
+      "tag": "div",
+      "classes": [
+        "status-pill",
+        "status-loading"
+      ],
+      "level_hint": "atom",
+      "component_hint": "StatusPill",
+      "content_hash": "d93ff736bf2f",
+      "source_file": "admin-app-health.html",
+      "parent_cdd_id": "mol-health-statu-01",
+      "duplicate_of": null,
+      "text_content": "LOADING",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-body-text-03",
+      "tag": "div",
+      "classes": [
+        "health-message"
+      ],
+      "level_hint": "atom",
+      "component_hint": "BodyText",
+      "content_hash": "288b512f108c",
+      "source_file": "admin-app-health.html",
+      "parent_cdd_id": "org-card-01",
+      "duplicate_of": null,
+      "text_content": "Verbindung wird geprueft...",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-action-butto-01",
+      "tag": "div",
+      "classes": [
+        "health-button"
+      ],
+      "level_hint": "atom",
+      "component_hint": "ActionButton",
+      "content_hash": "741afcd17109",
+      "source_file": "admin-app-health.html",
+      "parent_cdd_id": "org-card-01",
+      "duplicate_of": null,
+      "text_content": "Health-Check ausfuehren",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "tpl-page-templat-01",
+      "tag": "main",
+      "classes": [
+        "page"
+      ],
+      "level_hint": "template",
+      "component_hint": "PageTemplate",
+      "content_hash": "dace7dfb648f",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": null,
+      "duplicate_of": "tpl-page-templat-01",
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "mol-navigation-p-01",
+      "tag": "nav",
+      "classes": [
+        "nav-row"
+      ],
+      "level_hint": "molecule",
+      "component_hint": "NavigationPillGroup",
+      "content_hash": "3c2400f7f2b7",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "tpl-page-templat-01",
+      "duplicate_of": "mol-navigation-p-01",
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-nav-button-01",
+      "tag": "span",
+      "classes": [
+        "nav-button",
+        "active"
+      ],
+      "level_hint": "atom",
+      "component_hint": "NavButton",
+      "content_hash": "82e8a3f713fd",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "mol-navigation-p-01",
+      "duplicate_of": "atm-nav-button-01",
+      "text_content": "Dashboard",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-nav-button-02",
+      "tag": "span",
+      "classes": [
+        "nav-button"
+      ],
+      "level_hint": "atom",
+      "component_hint": "NavButton",
+      "content_hash": "b740c4214aed",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "mol-navigation-p-01",
+      "duplicate_of": "atm-nav-button-02",
+      "text_content": "Register",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-nav-button-03",
+      "tag": "span",
+      "classes": [
+        "nav-button"
+      ],
+      "level_hint": "atom",
+      "component_hint": "NavButton",
+      "content_hash": "b740c4214aed",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "mol-navigation-p-01",
+      "duplicate_of": "atm-nav-button-02",
+      "text_content": "Health",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-heading-01",
+      "tag": "h1",
+      "classes": [
+        "heading"
+      ],
+      "level_hint": "atom",
+      "component_hint": "Heading",
+      "content_hash": "532ef29121d6",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "tpl-page-templat-01",
+      "duplicate_of": "atm-heading-01",
+      "text_content": "Workout App",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-body-text-01",
+      "tag": "p",
+      "classes": [
+        "subheading"
+      ],
+      "level_hint": "atom",
+      "component_hint": "BodyText",
+      "content_hash": "2d98828980f6",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "tpl-page-templat-01",
+      "duplicate_of": "atm-body-text-01",
+      "text_content": "Mobile-Frontend fuer Trainingsplaene, Sessions und Fortschritt.",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "org-workout-list-01",
+      "tag": "section",
+      "classes": [
+        "list"
+      ],
+      "level_hint": "organism",
+      "component_hint": "WorkoutList",
+      "content_hash": "bd2007226962",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "tpl-page-templat-01",
+      "duplicate_of": null,
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "org-card-01",
+      "tag": "article",
+      "classes": [
+        "card"
+      ],
+      "level_hint": "organism",
+      "component_hint": "Card",
+      "content_hash": "47bbc0081c4a",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "org-workout-list-01",
+      "duplicate_of": "org-card-01",
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "mol-workout-card-01",
+      "tag": "div",
+      "classes": [
+        "card-header"
+      ],
+      "level_hint": "molecule",
+      "component_hint": "WorkoutCardHeader",
+      "content_hash": "da1c3b3908ff",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "org-card-01",
+      "duplicate_of": "mol-workout-card-01",
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-heading-02",
+      "tag": "h2",
+      "classes": [
+        "card-title"
+      ],
+      "level_hint": "atom",
+      "component_hint": "Heading",
+      "content_hash": "5633dc98f742",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "mol-workout-card-01",
+      "duplicate_of": "atm-heading-02",
+      "text_content": "Lower Body Strength",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-badge-01",
+      "tag": "span",
+      "classes": [
+        "badge"
+      ],
+      "level_hint": "atom",
+      "component_hint": "Badge",
+      "content_hash": "25d85fc22ad3",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "mol-workout-card-01",
+      "duplicate_of": "atm-badge-01",
+      "text_content": "Intermediate",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-body-text-02",
+      "tag": "p",
+      "classes": [
+        "meta"
+      ],
+      "level_hint": "atom",
+      "component_hint": "BodyText",
+      "content_hash": "bdeeacf2b45f",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "org-card-01",
+      "duplicate_of": "atm-body-text-02",
+      "text_content": "45 min",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "org-card-02",
+      "tag": "article",
+      "classes": [
+        "card"
+      ],
+      "level_hint": "organism",
+      "component_hint": "Card",
+      "content_hash": "47bbc0081c4a",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "org-workout-list-01",
+      "duplicate_of": "org-card-01",
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "mol-workout-card-02",
+      "tag": "div",
+      "classes": [
+        "card-header"
+      ],
+      "level_hint": "molecule",
+      "component_hint": "WorkoutCardHeader",
+      "content_hash": "da1c3b3908ff",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "org-card-02",
+      "duplicate_of": "mol-workout-card-01",
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-heading-03",
+      "tag": "h2",
+      "classes": [
+        "card-title"
+      ],
+      "level_hint": "atom",
+      "component_hint": "Heading",
+      "content_hash": "5633dc98f742",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "mol-workout-card-02",
+      "duplicate_of": "atm-heading-02",
+      "text_content": "Core Stability Circuit",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-badge-02",
+      "tag": "span",
+      "classes": [
+        "badge"
+      ],
+      "level_hint": "atom",
+      "component_hint": "Badge",
+      "content_hash": "25d85fc22ad3",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "mol-workout-card-02",
+      "duplicate_of": "atm-badge-01",
+      "text_content": "Beginner",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-body-text-03",
+      "tag": "p",
+      "classes": [
+        "meta"
+      ],
+      "level_hint": "atom",
+      "component_hint": "BodyText",
+      "content_hash": "bdeeacf2b45f",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "org-card-02",
+      "duplicate_of": "atm-body-text-02",
+      "text_content": "20 min",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "tpl-page-templat-01",
+      "tag": "main",
+      "classes": [
+        "page"
+      ],
+      "level_hint": "template",
+      "component_hint": "PageTemplate",
+      "content_hash": "dace7dfb648f",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": null,
+      "duplicate_of": "tpl-page-templat-01",
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "mol-navigation-p-01",
+      "tag": "nav",
+      "classes": [
+        "nav-row"
+      ],
+      "level_hint": "molecule",
+      "component_hint": "NavigationPillGroup",
+      "content_hash": "3c2400f7f2b7",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "tpl-page-templat-01",
+      "duplicate_of": "mol-navigation-p-01",
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-nav-button-01",
+      "tag": "span",
+      "classes": [
+        "nav-button"
+      ],
+      "level_hint": "atom",
+      "component_hint": "NavButton",
+      "content_hash": "b740c4214aed",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "mol-navigation-p-01",
+      "duplicate_of": "atm-nav-button-02",
+      "text_content": "Dashboard",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-nav-button-02",
+      "tag": "span",
+      "classes": [
+        "nav-button"
+      ],
+      "level_hint": "atom",
+      "component_hint": "NavButton",
+      "content_hash": "b740c4214aed",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "mol-navigation-p-01",
+      "duplicate_of": "atm-nav-button-02",
+      "text_content": "Register",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-nav-button-03",
+      "tag": "span",
+      "classes": [
+        "nav-button",
+        "active"
+      ],
+      "level_hint": "atom",
+      "component_hint": "NavButton",
+      "content_hash": "82e8a3f713fd",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "mol-navigation-p-01",
+      "duplicate_of": "atm-nav-button-01",
+      "text_content": "Health",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "org-card-01",
+      "tag": "section",
+      "classes": [
+        "card"
+      ],
+      "level_hint": "organism",
+      "component_hint": "Card",
+      "content_hash": "837b847c637f",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "tpl-page-templat-01",
+      "duplicate_of": "org-card-01",
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-heading-01",
+      "tag": "h1",
+      "classes": [
+        "heading"
+      ],
+      "level_hint": "atom",
+      "component_hint": "Heading",
+      "content_hash": "532ef29121d6",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "org-card-01",
+      "duplicate_of": "atm-heading-01",
+      "text_content": "Health Page",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-body-text-01",
+      "tag": "p",
+      "classes": [
+        "subheading"
+      ],
+      "level_hint": "atom",
+      "component_hint": "BodyText",
+      "content_hash": "2d98828980f6",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "org-card-01",
+      "duplicate_of": "atm-body-text-01",
+      "text_content": "Prueft die Erreichbarkeit der Supabase Edge Function vom Workout-Client.",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-unknown-01",
+      "tag": "div",
+      "classes": [],
+      "level_hint": "atom",
+      "component_hint": "Unknown",
+      "content_hash": "2d809a8eb567",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "org-card-01",
+      "duplicate_of": "atm-unknown-01",
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-label-caps-01",
+      "tag": "div",
+      "classes": [
+        "label"
+      ],
+      "level_hint": "atom",
+      "component_hint": "LabelCaps",
+      "content_hash": "b27141f8b330",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "atm-unknown-01",
+      "duplicate_of": "atm-label-caps-01",
+      "text_content": "Endpoint",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-body-text-02",
+      "tag": "div",
+      "classes": [
+        "endpoint"
+      ],
+      "level_hint": "atom",
+      "component_hint": "BodyText",
+      "content_hash": "0386deb11562",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "atm-unknown-01",
+      "duplicate_of": "atm-body-text-02",
+      "text_content": "Nicht konfiguriert",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "mol-health-statu-01",
+      "tag": "div",
+      "classes": [
+        "status-row"
+      ],
+      "level_hint": "molecule",
+      "component_hint": "HealthStatusRow",
+      "content_hash": "ee6c7c3d0193",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "org-card-01",
+      "duplicate_of": "mol-health-statu-01",
+      "text_content": null,
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-label-caps-02",
+      "tag": "div",
+      "classes": [
+        "label"
+      ],
+      "level_hint": "atom",
+      "component_hint": "LabelCaps",
+      "content_hash": "b27141f8b330",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "mol-health-statu-01",
+      "duplicate_of": "atm-label-caps-01",
+      "text_content": "Status",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-status-pill-01",
+      "tag": "div",
+      "classes": [
+        "status-pill",
+        "status-loading"
+      ],
+      "level_hint": "atom",
+      "component_hint": "StatusPill",
+      "content_hash": "d93ff736bf2f",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "mol-health-statu-01",
+      "duplicate_of": "atm-status-pill-01",
+      "text_content": "LOADING",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-body-text-03",
+      "tag": "div",
+      "classes": [
+        "health-message"
+      ],
+      "level_hint": "atom",
+      "component_hint": "BodyText",
+      "content_hash": "288b512f108c",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "org-card-01",
+      "duplicate_of": "atm-body-text-03",
+      "text_content": "Verbindung wird geprueft...",
+      "attrs": {}
+    },
+    {
+      "cdd-id": "atm-action-butto-01",
+      "tag": "div",
+      "classes": [
+        "health-button"
+      ],
+      "level_hint": "atom",
+      "component_hint": "ActionButton",
+      "content_hash": "741afcd17109",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "org-card-01",
+      "duplicate_of": "atm-action-butto-01",
+      "text_content": "Health-Check ausfuehren",
+      "attrs": {}
+    }
+  ]
+}

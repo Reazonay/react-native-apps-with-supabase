@@ -1,0 +1,364 @@
+{
+  "_comment": [
+    "workflow-progress.json – Tatsächlicher Arbeitsstand des CDD Manager Agents.",
+    "Generiert am: 2026-06-10 nach Ausführung von deduplicate_and_parse.js.",
+    "",
+    "BONUS – Dependency-Tracking-System:",
+    "Das dependencies[]-Array beschreibt den Abhängigkeitsgraph von unten (Atome) nach oben.",
+    "Wenn das Skript beim nächsten Lauf einen geänderten content_hash meldet, prüft der Agent:",
+    "  1. Welche components[].dependencies[] den geänderten cdd-id enthalten.",
+    "  2. Diese Komponenten erhalten needs_update: true.",
+    "  3. Die Prüfung kaskadiert: Ändert sich ein Molekül, werden auch Organismen geprüft.",
+    "Ergebnis: Nur wirklich betroffene Komponenten werden neu generiert.",
+    "Beispiel: Badge (atm-badge-01) ändert Hash →",
+    "  WorkoutCard (org-card-01) → needs_update: true",
+    "  WorkoutList (org-workout-list-01) → needs_update: true (weil Card drin ist)",
+    "  NavigationPillGroup bleibt unberührt."
+  ],
+  "schema_version": "1.0.0",
+  "workflow_id": "cdd-analysis-skill",
+  "last_run": "2026-06-10T08:05:38.167Z",
+  "phase": "cdd-classification",
+  "status": "in_progress",
+  "processed_files": [
+    {
+      "file": "admin-app-dashboard.html",
+      "hash": "c4eeaa217f73610b",
+      "last_processed": "2026-06-10T08:05:38.167Z"
+    },
+    {
+      "file": "admin-app-health.html",
+      "hash": "c95b2aa43d06c12e",
+      "last_processed": "2026-06-10T08:05:38.167Z"
+    },
+    {
+      "file": "workout-app-dashboard.html",
+      "hash": "de987e7cc21a5002",
+      "last_processed": "2026-06-10T08:05:38.167Z"
+    },
+    {
+      "file": "workout-app-health.html",
+      "hash": "60c2d8d44f2d2b85",
+      "last_processed": "2026-06-10T08:05:38.167Z"
+    }
+  ],
+  "statistics": {
+    "total_elements_scanned": 66,
+    "canonical_elements": 21,
+    "duplicate_elements": 45,
+    "deduplication_rate": "68%"
+  },
+  "components": [
+    {
+      "cdd-id": "tpl-page-templat-01",
+      "component": "PageTemplate",
+      "atomic_level": "template",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/templates/PageTemplate.tsx",
+      "story_file": "packages/shared-components/stories/DashboardTemplate.stories.tsx",
+      "dependencies": [],
+      "tokens_used": ["spacing.containerMargin", "spacing.stackGap"],
+      "rn_mapping": {
+        "html": "<main class='page'>",
+        "rn": "<SafeAreaView><ScrollView contentContainerStyle={styles.page}>"
+      }
+    },
+    {
+      "cdd-id": "mol-navigation-p-01",
+      "component": "NavigationPillGroup",
+      "atomic_level": "molecule",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/molecules/NavigationPillGroup.tsx",
+      "story_file": "packages/shared-components/stories/NavigationPills.stories.tsx",
+      "dependencies": ["atm-nav-button-01", "atm-nav-button-02"],
+      "tokens_used": ["spacing.xs", "spacing.inlineGap"],
+      "rn_mapping": {
+        "html": "<nav class='nav-row'>",
+        "rn": "<View style={{ flexDirection: 'row', gap: tokens.spacing.xs }}>"
+      }
+    },
+    {
+      "cdd-id": "atm-nav-button-01",
+      "component": "NavButton (active variant)",
+      "atomic_level": "atom",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/atoms/KineticButton.tsx",
+      "story_file": "packages/shared-components/stories/KineticButton.stories.tsx",
+      "dependencies": [],
+      "tokens_used": ["colors.navActive", "colors.surface", "radius.pill", "spacing.sm", "spacing.md"],
+      "rn_mapping": {
+        "html": "<span class='nav-button active'>",
+        "rn": "<TouchableOpacity style={[styles.navButton, styles.navButtonActive]}><Text style={styles.navButtonActiveText}>"
+      }
+    },
+    {
+      "cdd-id": "atm-nav-button-02",
+      "component": "NavButton (inactive variant)",
+      "atomic_level": "atom",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/atoms/KineticButton.tsx",
+      "story_file": "packages/shared-components/stories/KineticButton.stories.tsx",
+      "dependencies": [],
+      "tokens_used": ["colors.navInactive", "colors.surfaceBorder", "radius.pill"],
+      "rn_mapping": {
+        "html": "<span class='nav-button'>",
+        "rn": "<TouchableOpacity style={styles.navButton}><Text style={styles.navButtonText}>"
+      }
+    },
+    {
+      "cdd-id": "atm-heading-01",
+      "component": "Heading (h1 / displayXL)",
+      "atomic_level": "atom",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/atoms/KineticText.tsx",
+      "story_file": "packages/shared-components/stories/KineticText.stories.tsx",
+      "dependencies": [],
+      "tokens_used": ["typography.headingXL", "colors.textPrimary"],
+      "rn_mapping": {
+        "html": "<h1 class='heading'>",
+        "rn": "<Text style={[tokens.typography.headingXL, { color: tokens.colors.textPrimary }]}>"
+      }
+    },
+    {
+      "cdd-id": "atm-heading-02",
+      "component": "Heading (h2 / title)",
+      "atomic_level": "atom",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/atoms/KineticText.tsx",
+      "story_file": "packages/shared-components/stories/KineticText.stories.tsx",
+      "dependencies": [],
+      "tokens_used": ["typography.title", "colors.textPrimary"],
+      "rn_mapping": {
+        "html": "<h2 class='card-title'>",
+        "rn": "<Text style={[tokens.typography.title, { color: tokens.colors.textPrimary }]}>"
+      }
+    },
+    {
+      "cdd-id": "atm-body-text-01",
+      "component": "BodyText (subheading variant)",
+      "atomic_level": "atom",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/atoms/KineticText.tsx",
+      "story_file": "packages/shared-components/stories/KineticText.stories.tsx",
+      "dependencies": [],
+      "tokens_used": ["typography.subheading", "colors.textSecondary"],
+      "rn_mapping": {
+        "html": "<p class='subheading'>",
+        "rn": "<Text style={[tokens.typography.subheading, { color: tokens.colors.textSecondary }]}>"
+      }
+    },
+    {
+      "cdd-id": "atm-body-text-02",
+      "component": "BodyText (meta/caption variant)",
+      "atomic_level": "atom",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/atoms/KineticText.tsx",
+      "story_file": "packages/shared-components/stories/KineticText.stories.tsx",
+      "dependencies": [],
+      "tokens_used": ["typography.body", "colors.textSecondary"],
+      "rn_mapping": {
+        "html": "<p class='meta'>",
+        "rn": "<Text style={[tokens.typography.body, { color: tokens.colors.textSecondary }]}>"
+      }
+    },
+    {
+      "cdd-id": "atm-body-text-03",
+      "component": "BodyText (health-message variant)",
+      "atomic_level": "atom",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/atoms/KineticText.tsx",
+      "story_file": "packages/shared-components/stories/KineticText.stories.tsx",
+      "dependencies": [],
+      "tokens_used": ["typography.body", "colors.textPrimary"],
+      "rn_mapping": {
+        "html": "<div class='health-message'>",
+        "rn": "<Text style={[tokens.typography.body, { color: tokens.colors.textPrimary }]}>"
+      }
+    },
+    {
+      "cdd-id": "atm-badge-01",
+      "component": "Badge (success variant)",
+      "atomic_level": "atom",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/atoms/KineticBadge.tsx",
+      "story_file": "packages/shared-components/stories/KineticBadge.stories.tsx",
+      "dependencies": [],
+      "tokens_used": ["colors.badgeSuccessBg", "colors.badgeSuccessText", "radius.pill", "spacing.xs", "typography.labelCaps"],
+      "rn_mapping": {
+        "html": "<span class='badge'>",
+        "rn": "<View style={styles.badge}><Text style={styles.badgeText}>"
+      }
+    },
+    {
+      "cdd-id": "atm-label-caps-01",
+      "component": "LabelCaps",
+      "atomic_level": "atom",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/atoms/KineticText.tsx",
+      "story_file": "packages/shared-components/stories/KineticText.stories.tsx",
+      "dependencies": [],
+      "tokens_used": ["typography.labelCaps", "colors.textMuted"],
+      "rn_mapping": {
+        "html": "<div class='label'>",
+        "rn": "<Text style={[tokens.typography.labelCaps, { color: tokens.colors.textMuted }]}>"
+      }
+    },
+    {
+      "cdd-id": "atm-status-pill-01",
+      "component": "StatusPill (loading variant)",
+      "atomic_level": "atom",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/atoms/KineticBadge.tsx",
+      "story_file": "packages/shared-components/stories/StatusPill.stories.tsx",
+      "dependencies": [],
+      "tokens_used": ["colors.statusLoadingBg", "colors.statusLoadingText", "radius.pill", "spacing.xs"],
+      "rn_mapping": {
+        "html": "<div class='status-pill status-loading'>",
+        "rn": "<View style={[styles.statusPill, styles.statusLoading]}><Text style={styles.statusText}>"
+      }
+    },
+    {
+      "cdd-id": "atm-action-butto-01",
+      "component": "ActionButton",
+      "atomic_level": "atom",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/atoms/KineticButton.tsx",
+      "story_file": "packages/shared-components/stories/KineticButton.stories.tsx",
+      "dependencies": [],
+      "tokens_used": ["colors.actionPrimary", "colors.actionPrimaryText", "radius.md", "spacing.sm", "spacing.md", "typography.body"],
+      "rn_mapping": {
+        "html": "<div class='health-button'>",
+        "rn": "<TouchableOpacity style={styles.actionButton}><Text style={styles.actionButtonText}>"
+      }
+    },
+    {
+      "cdd-id": "atm-unknown-01",
+      "component": "EndpointRow (wrapper div – kein Klassen-Hint)",
+      "atomic_level": "atom",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/molecules/EndpointRow.tsx",
+      "story_file": "packages/shared-components/stories/HealthStatusRow.stories.tsx",
+      "dependencies": ["atm-label-caps-01", "atm-body-text-02"],
+      "tokens_used": ["spacing.xs"],
+      "rn_mapping": {
+        "html": "<div> (kein class, enthält .label + .endpoint)",
+        "rn": "<View style={{ gap: tokens.spacing.xs }}>"
+      }
+    },
+    {
+      "cdd-id": "mol-workout-card-01",
+      "component": "WorkoutCardHeader",
+      "atomic_level": "molecule",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/molecules/WorkoutCardHeader.tsx",
+      "story_file": "packages/shared-components/stories/WorkoutCard.stories.tsx",
+      "dependencies": ["atm-heading-02", "atm-badge-01"],
+      "tokens_used": ["spacing.inlineGap"],
+      "rn_mapping": {
+        "html": "<div class='card-header'>",
+        "rn": "<View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: tokens.spacing.inlineGap }}>"
+      }
+    },
+    {
+      "cdd-id": "mol-health-statu-01",
+      "component": "HealthStatusRow",
+      "atomic_level": "molecule",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/molecules/HealthStatusRow.tsx",
+      "story_file": "packages/shared-components/stories/HealthStatusRow.stories.tsx",
+      "dependencies": ["atm-label-caps-01", "atm-status-pill-01"],
+      "tokens_used": ["spacing.inlineGap"],
+      "rn_mapping": {
+        "html": "<div class='status-row'>",
+        "rn": "<View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>"
+      }
+    },
+    {
+      "cdd-id": "org-admin-workou-01",
+      "component": "AdminWorkoutGrid",
+      "atomic_level": "organism",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/organisms/AdminWorkoutGrid.tsx",
+      "story_file": "packages/shared-components/stories/AdminWorkoutGrid.stories.tsx",
+      "dependencies": ["org-card-01", "mol-workout-card-01"],
+      "tokens_used": ["spacing.stackGap"],
+      "rn_mapping": {
+        "html": "<section class='grid'>",
+        "rn": "<View style={{ gap: tokens.spacing.stackGap }}>"
+      }
+    },
+    {
+      "cdd-id": "org-workout-list-01",
+      "component": "WorkoutList",
+      "atomic_level": "organism",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/organisms/WorkoutList.tsx",
+      "story_file": "packages/shared-components/stories/WorkoutList.stories.tsx",
+      "dependencies": ["org-card-01", "mol-workout-card-01"],
+      "tokens_used": ["spacing.stackGap"],
+      "rn_mapping": {
+        "html": "<section class='list'>",
+        "rn": "<View style={{ gap: tokens.spacing.stackGap }}>"
+      }
+    },
+    {
+      "cdd-id": "org-card-01",
+      "component": "WorkoutCard (article.card)",
+      "atomic_level": "organism",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/WorkoutCard.tsx",
+      "story_file": "packages/shared-components/stories/WorkoutCard.stories.tsx",
+      "dependencies": ["mol-workout-card-01", "atm-body-text-02"],
+      "tokens_used": ["colors.surface", "radius.lg", "spacing.cardPadding", "spacing.cardGap"],
+      "rn_mapping": {
+        "html": "<article class='card'>",
+        "rn": "<View style={[styles.card, { borderRadius: tokens.radius.lg, padding: tokens.spacing.cardPadding }]}>"
+      }
+    },
+    {
+      "cdd-id": "org-card-02",
+      "component": "HealthCard (section.card)",
+      "atomic_level": "organism",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/organisms/HealthCard.tsx",
+      "story_file": "packages/shared-components/stories/HealthCard.stories.tsx",
+      "dependencies": ["atm-heading-01", "atm-body-text-01", "mol-health-statu-01", "atm-action-butto-01", "atm-unknown-01"],
+      "tokens_used": ["colors.surface", "colors.surfaceBorder", "radius.lg", "spacing.cardPadding", "spacing.stackGap"],
+      "rn_mapping": {
+        "html": "<section class='card'> (Health-Seite)",
+        "rn": "<View style={[styles.healthCard, { borderRadius: tokens.radius.lg, padding: tokens.spacing.cardPadding }]}>"
+      }
+    }
+  ],
+  "summary": {
+    "total_components": 20,
+    "atoms": 13,
+    "molecules": 3,
+    "organisms": 3,
+    "templates": 1,
+    "completed": 0,
+    "pending": 20,
+    "needs_update": 0,
+    "deduplication_savings": "45 redundante Elemente eliminiert (68% der gescannten Elemente)"
+  }
+}

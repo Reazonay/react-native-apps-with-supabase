@@ -1,0 +1,222 @@
+{
+  "_comment": [
+    "deduplicated-components.template.json – Muster-Struktur für den Skript-Output.",
+    "Diese Datei zeigt das Endergebnis der Deduplizierung und Klassifizierung.",
+    "Duplikate sind via duplicate_of auf das Original referenziert.",
+    "Der Agent darf nur canonical-Einträge (duplicate_of: null) implementieren."
+  ],
+  "metadata": {
+    "generated_on": "2026-06-10T00:00:00Z",
+    "script_version": "1.0.0",
+    "source_dir": "docs/workflow/snapshots/",
+    "total_elements": 32,
+    "canonical_elements": 12,
+    "duplicate_elements": 20
+  },
+  "processed_files": [
+    { "file": "workout-app-dashboard.html", "hash": "abc123def456" },
+    { "file": "workout-app-health.html",    "hash": "def456abc789" },
+    { "file": "admin-app-dashboard.html",   "hash": "fed321cba654" },
+    { "file": "admin-app-health.html",      "hash": "cba654fed987" }
+  ],
+  "elements": [
+    {
+      "cdd-id": "atm-nav-button-01",
+      "tag": "span",
+      "classes": ["nav-button", "active"],
+      "level_hint": "atom",
+      "component_hint": "NavButton",
+      "content_hash": "a1b2c3d4e5f6",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "mol-nav-pill-group-01",
+      "duplicate_of": null,
+      "text_content": "Dashboard",
+      "attrs": {},
+      "rn_mapping": {
+        "html_element": "<span class='nav-button active'>",
+        "rn_component": "<TouchableOpacity style={[styles.navButton, styles.navButtonActive]}><Text style={styles.navButtonText}>"
+      }
+    },
+    {
+      "cdd-id": "atm-nav-button-02",
+      "tag": "span",
+      "classes": ["nav-button"],
+      "level_hint": "atom",
+      "component_hint": "NavButton",
+      "content_hash": "b2c3d4e5f6a1",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "mol-nav-pill-group-01",
+      "duplicate_of": null,
+      "text_content": "Register",
+      "attrs": {},
+      "rn_mapping": {
+        "html_element": "<span class='nav-button'>",
+        "rn_component": "<TouchableOpacity style={styles.navButton}><Text style={styles.navButtonText}>"
+      }
+    },
+    {
+      "cdd-id": "atm-nav-button-03",
+      "tag": "span",
+      "classes": ["nav-button", "active"],
+      "level_hint": "atom",
+      "component_hint": "NavButton",
+      "content_hash": "a1b2c3d4e5f6",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "mol-nav-pill-group-02",
+      "duplicate_of": "atm-nav-button-01",
+      "text_content": "Health",
+      "attrs": {},
+      "rn_mapping": null
+    },
+    {
+      "cdd-id": "atm-heading-01",
+      "tag": "h1",
+      "classes": ["heading"],
+      "level_hint": "atom",
+      "component_hint": "Heading",
+      "content_hash": "c3d4e5f6a1b2",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": null,
+      "duplicate_of": null,
+      "text_content": "Workout App",
+      "attrs": {},
+      "rn_mapping": {
+        "html_element": "<h1 class='heading'>",
+        "rn_component": "<Text style={tokens.typography.headingXL}>"
+      }
+    },
+    {
+      "cdd-id": "atm-body-text-01",
+      "tag": "p",
+      "classes": ["subheading"],
+      "level_hint": "atom",
+      "component_hint": "BodyText",
+      "content_hash": "d4e5f6a1b2c3",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": null,
+      "duplicate_of": null,
+      "text_content": "Mobile-Frontend fuer Trainingsplaene...",
+      "attrs": {},
+      "rn_mapping": {
+        "html_element": "<p class='subheading'>",
+        "rn_component": "<Text style={tokens.typography.subheading}>"
+      }
+    },
+    {
+      "cdd-id": "atm-badge-01",
+      "tag": "span",
+      "classes": ["badge"],
+      "level_hint": "atom",
+      "component_hint": "Badge",
+      "content_hash": "e5f6a1b2c3d4",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "mol-workout-card-header-01",
+      "duplicate_of": null,
+      "text_content": "Intermediate",
+      "attrs": {},
+      "rn_mapping": {
+        "html_element": "<span class='badge'>",
+        "rn_component": "<View style={styles.badge}><Text style={styles.badgeText}>"
+      }
+    },
+    {
+      "cdd-id": "atm-badge-02",
+      "tag": "span",
+      "classes": ["badge"],
+      "level_hint": "atom",
+      "component_hint": "Badge",
+      "content_hash": "e5f6a1b2c3d4",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "mol-workout-card-header-02",
+      "duplicate_of": "atm-badge-01",
+      "text_content": "Beginner",
+      "attrs": {},
+      "rn_mapping": null
+    },
+    {
+      "cdd-id": "atm-status-pill-01",
+      "tag": "div",
+      "classes": ["status-pill", "status-loading"],
+      "level_hint": "atom",
+      "component_hint": "StatusPill",
+      "content_hash": "f6a1b2c3d4e5",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "mol-health-status-row-01",
+      "duplicate_of": null,
+      "text_content": "LOADING",
+      "attrs": {},
+      "rn_mapping": {
+        "html_element": "<div class='status-pill status-loading'>",
+        "rn_component": "<View style={[styles.statusPill, styles.statusLoading]}><Text style={styles.statusText}>"
+      }
+    },
+    {
+      "cdd-id": "atm-action-button-01",
+      "tag": "div",
+      "classes": ["health-button"],
+      "level_hint": "atom",
+      "component_hint": "ActionButton",
+      "content_hash": "a2b3c4d5e6f7",
+      "source_file": "workout-app-health.html",
+      "parent_cdd_id": "org-health-card-01",
+      "duplicate_of": null,
+      "text_content": "Health-Check ausfuehren",
+      "attrs": {},
+      "rn_mapping": {
+        "html_element": "<div class='health-button'>",
+        "rn_component": "<TouchableOpacity style={styles.actionButton}><Text style={styles.actionButtonText}>"
+      }
+    },
+    {
+      "cdd-id": "mol-nav-pill-group-01",
+      "tag": "nav",
+      "classes": ["nav-row"],
+      "level_hint": "molecule",
+      "component_hint": "NavigationPillGroup",
+      "content_hash": "b3c4d5e6f7a2",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": null,
+      "duplicate_of": null,
+      "text_content": null,
+      "attrs": {},
+      "rn_mapping": {
+        "html_element": "<nav class='nav-row'>",
+        "rn_component": "<View style={styles.navRow}> /* contains NavButton children */"
+      }
+    },
+    {
+      "cdd-id": "mol-workout-card-header-01",
+      "tag": "div",
+      "classes": ["card-header"],
+      "level_hint": "molecule",
+      "component_hint": "WorkoutCardHeader",
+      "content_hash": "c4d5e6f7a2b3",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": "org-workout-card-01",
+      "duplicate_of": null,
+      "text_content": null,
+      "attrs": {},
+      "rn_mapping": {
+        "html_element": "<div class='card-header'>",
+        "rn_component": "<View style={styles.cardHeader}> /* Heading + Badge row */"
+      }
+    },
+    {
+      "cdd-id": "org-workout-card-01",
+      "tag": "article",
+      "classes": ["card"],
+      "level_hint": "organism",
+      "component_hint": "WorkoutCard",
+      "content_hash": "d5e6f7a2b3c4",
+      "source_file": "workout-app-dashboard.html",
+      "parent_cdd_id": null,
+      "duplicate_of": null,
+      "text_content": null,
+      "attrs": {},
+      "rn_mapping": {
+        "html_element": "<article class='card'>",
+        "rn_component": "<View style={styles.card}> /* WorkoutCardHeader + BodyText */"
+      }
+    }
+  ]
+}

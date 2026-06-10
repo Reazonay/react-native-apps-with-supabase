@@ -1,0 +1,121 @@
+{
+  "_comment": [
+    "workflow-progress.template.json – Muster-Checkpoint für den CDD Manager Agent.",
+    "Tracking-System: Wenn sich ein Atom ändert (neuer content_hash), werden alle",
+    "abhängigen Moleküle und Organismen automatisch als needs_update=true markiert.",
+    "Das verhindert unnötige Regenerierung von Komponenten, die sich nicht geändert haben.",
+    "",
+    "BONUS-ERKLÄRUNG ZUM DEPENDENCY-TRACKING:",
+    "Das dependencies-Array beschreibt den Abhängigkeitsgraph von unten nach oben.",
+    "Wenn das Skript beim nächsten Lauf einen neuen Hash für 'atm-badge-01' meldet,",
+    "sucht der Agent alle Einträge, deren dependencies[] 'atm-badge-01' enthält,",
+    "und setzt deren needs_update auf true. So wird nur WorkoutCard (mol) und",
+    "WorkoutList (org) neu generiert – nicht aber NavButton oder Heading.",
+    "Das spart Token-Kosten und verhindert ungewollte Regressions."
+  ],
+  "schema_version": "1.0.0",
+  "workflow_id": "cdd-analysis-skill",
+  "last_run": "2026-06-10T00:00:00Z",
+  "phase": "cdd-classification",
+  "status": "in_progress",
+  "processed_files": [
+    {
+      "file": "workout-app-dashboard.html",
+      "hash": "abc123def456",
+      "last_processed": "2026-06-10T00:00:00Z"
+    },
+    {
+      "file": "workout-app-health.html",
+      "hash": "def456abc789",
+      "last_processed": "2026-06-10T00:00:00Z"
+    },
+    {
+      "file": "admin-app-dashboard.html",
+      "hash": "fed321cba654",
+      "last_processed": "2026-06-10T00:00:00Z"
+    },
+    {
+      "file": "admin-app-health.html",
+      "hash": "cba654fed987",
+      "last_processed": "2026-06-10T00:00:00Z"
+    }
+  ],
+  "components": [
+    {
+      "cdd-id": "atm-nav-button-01",
+      "component": "NavButton",
+      "atomic_level": "atom",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/atoms/KineticButton.tsx",
+      "story_file": "packages/shared-components/stories/KineticButton.stories.tsx",
+      "dependencies": [],
+      "tokens_used": ["colors.navActive", "colors.navInactive", "radius.pill", "spacing.sm"]
+    },
+    {
+      "cdd-id": "atm-heading-01",
+      "component": "Heading",
+      "atomic_level": "atom",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/atoms/KineticText.tsx",
+      "story_file": "packages/shared-components/stories/KineticText.stories.tsx",
+      "dependencies": [],
+      "tokens_used": ["typography.headingXL", "colors.textPrimary"]
+    },
+    {
+      "cdd-id": "atm-badge-01",
+      "component": "Badge",
+      "atomic_level": "atom",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/atoms/KineticBadge.tsx",
+      "story_file": "packages/shared-components/stories/KineticBadge.stories.tsx",
+      "dependencies": [],
+      "tokens_used": ["colors.badgeSuccessBg", "colors.badgeSuccessText", "radius.pill", "spacing.xs"]
+    },
+    {
+      "cdd-id": "mol-workout-card-header-01",
+      "component": "WorkoutCardHeader",
+      "atomic_level": "molecule",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/molecules/WorkoutCardHeader.tsx",
+      "story_file": "packages/shared-components/stories/WorkoutCardHeader.stories.tsx",
+      "dependencies": ["atm-heading-01", "atm-badge-01"],
+      "tokens_used": ["spacing.inlineGap"]
+    },
+    {
+      "cdd-id": "mol-nav-pill-group-01",
+      "component": "NavigationPillGroup",
+      "atomic_level": "molecule",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/molecules/NavigationPillGroup.tsx",
+      "story_file": "packages/shared-components/stories/NavigationPills.stories.tsx",
+      "dependencies": ["atm-nav-button-01"],
+      "tokens_used": ["spacing.xs"]
+    },
+    {
+      "cdd-id": "org-workout-card-01",
+      "component": "WorkoutCard",
+      "atomic_level": "organism",
+      "status": "pending",
+      "needs_update": false,
+      "rn_file": "packages/shared-components/src/WorkoutCard.tsx",
+      "story_file": "packages/shared-components/stories/WorkoutCard.stories.tsx",
+      "dependencies": ["mol-workout-card-header-01", "atm-heading-01"],
+      "tokens_used": ["colors.surface", "radius.lg", "spacing.cardPadding", "spacing.cardGap"]
+    }
+  ],
+  "summary": {
+    "total_components": 5,
+    "atoms": 3,
+    "molecules": 2,
+    "organisms": 1,
+    "templates": 0,
+    "completed": 0,
+    "pending": 5,
+    "needs_update": 0
+  }
+}
