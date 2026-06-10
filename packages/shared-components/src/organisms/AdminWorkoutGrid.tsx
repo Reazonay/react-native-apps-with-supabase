@@ -1,17 +1,19 @@
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
 import type { WorkoutSummary } from '@workout/shared-types';
 
 import { WorkoutCard } from '../WorkoutCard';
-import { uiSpacing } from '../uiTokens';
+import { useTheme } from '../themeContext';
 
 export interface AdminWorkoutGridProps {
   workouts: WorkoutSummary[];
 }
 
 export function AdminWorkoutGrid({ workouts }: AdminWorkoutGridProps) {
+  const theme = useTheme();
+
   return (
-    <View style={styles.grid}>
+    <View style={{ gap: theme.spacing.md, maxWidth: 720 }}>
       {workouts.map((workout) => (
         <WorkoutCard
           key={workout.id}
@@ -23,10 +25,3 @@ export function AdminWorkoutGrid({ workouts }: AdminWorkoutGridProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  grid: {
-    gap: uiSpacing.md,
-    maxWidth: 720
-  }
-});

@@ -1,8 +1,0 @@
-version: 1
-workflow: ki-ui-architecture
-problem: |
-  Design driftet und die KI verliert ohne Struktur den Faden.
-  Ziel ist ein modulares Framework mit CDD, Atomic Design,
-  klarer Agenten-Topologie und Progressive Disclosure.
-scope: monorepo
-priority: high

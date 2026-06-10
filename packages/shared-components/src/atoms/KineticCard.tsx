@@ -1,7 +1,8 @@
 import type { ReactNode } from 'react';
-import { StyleSheet, View } from 'react-native';
+import type { ViewStyle } from 'react-native';
+import { View } from 'react-native';
 
-import { uiColors, uiRadius, uiSpacing } from '../uiTokens';
+import { useTheme } from '../themeContext';
 
 export type KineticCardVariant = 'default' | 'outline';
 
@@ -9,34 +10,41 @@ export interface KineticCardProps {
   children: ReactNode;
   variant?: KineticCardVariant;
   gap?: number;
+  style?: ViewStyle | ViewStyle[];
 }
 
-export function KineticCard({ children, variant = 'default', gap = uiSpacing.cardGap }: KineticCardProps) {
+export function KineticCard({ children, variant = 'default', gap, style }: KineticCardProps) {
+  const theme = useTheme();
+  const cardGap = gap ?? theme.spacing.cardGap;
+
+  const cardStyle = {
+    backgroundColor: theme.colors.surface,
+    borderRadius: theme.radius.lg,
+    padding: theme.spacing.cardPadding,
+    gap: cardGap,
+  };
+
+  const variantStyle = variant === 'default'
+    ? {
+        shadowColor: theme.colors.accent,
+        shadowOpacity: 0.15,
+        shadowRadius: 24,
+        shadowOffset: {
+          width: 0,
+          height: 12
+        },
+        elevation: 5,
+        borderWidth: 1,
+        borderColor: 'rgba(237, 233, 0, 0.05)', // Subtle neon tint border
+      }
+    : {
+        borderWidth: 1,
+        borderColor: theme.colors.border,
+      };
+
   return (
-    <View style={[styles.base, styles[variant], { gap }]}>
+    <View style={[cardStyle, variantStyle, style]}>
       {children}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  base: {
-    backgroundColor: uiColors.surface,
-    borderRadius: uiRadius.lg,
-    padding: uiSpacing.cardPadding
-  },
-  default: {
-    shadowColor: '#000000',
-    shadowOpacity: 0.08,
-    shadowRadius: 16,
-    shadowOffset: {
-      width: 0,
-      height: 8
-    },
-    elevation: 3
-  },
-  outline: {
-    borderWidth: 1,
-    borderColor: uiColors.surfaceBorder
-  }
-});

@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
 import { KineticText } from '../atoms';
-import { uiSpacing } from '../uiTokens';
+import { useTheme } from '../themeContext';
 
 export interface RegisterTemplateProps {
   title: string;
@@ -12,10 +12,12 @@ export interface RegisterTemplateProps {
 }
 
 export function RegisterTemplate({ title, subtitle, navigation, card }: RegisterTemplateProps) {
+  const theme = useTheme();
+
   return (
-    <View style={styles.container}>
+    <View style={{ gap: theme.spacing.lg }}>
       {navigation}
-      <View style={styles.header}>
+      <View style={{ gap: theme.spacing.sm }}>
         <KineticText variant="headingXL">{title}</KineticText>
         <KineticText variant="subheading" color="textSecondary">
           {subtitle}
@@ -25,12 +27,3 @@ export function RegisterTemplate({ title, subtitle, navigation, card }: Register
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    gap: uiSpacing.lg
-  },
-  header: {
-    gap: uiSpacing.sm
-  }
-});

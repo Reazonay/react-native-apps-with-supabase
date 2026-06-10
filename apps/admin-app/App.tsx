@@ -9,7 +9,9 @@ import {
   HealthTemplate,
   NavigationPills,
   uiColors,
-  uiSpacing
+  uiSpacing,
+  ThemeProvider,
+  uiSemanticTheme
 } from '@workout/shared-components';
 import type { WorkoutSummary } from '@workout/shared-types';
 
@@ -200,19 +202,21 @@ export default function App() {
   }, []);
 
   return (
-    <ApolloProvider client={client}>
-      <AdminAppContent />
-    </ApolloProvider>
+    <ThemeProvider theme={uiSemanticTheme}>
+      <ApolloProvider client={client}>
+        <AdminAppContent />
+      </ApolloProvider>
+    </ThemeProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: uiColors.backgroundAdmin
+    backgroundColor: uiSemanticTheme.colors.background
   },
   content: {
-    padding: uiSpacing.xxl,
-    gap: uiSpacing.xl
+    padding: uiSemanticTheme.spacing.xxl,
+    gap: uiSemanticTheme.spacing.xl
   }
 });

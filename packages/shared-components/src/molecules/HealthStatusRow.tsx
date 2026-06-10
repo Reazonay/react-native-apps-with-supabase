@@ -1,7 +1,7 @@
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
 import { KineticBadge, KineticText } from '../atoms';
-import { uiSpacing } from '../uiTokens';
+import { useTheme } from '../themeContext';
 
 export type HealthStatusTone = 'success' | 'warning' | 'error';
 
@@ -12,8 +12,10 @@ export interface HealthStatusRowProps {
 }
 
 export function HealthStatusRow({ label = 'Status', status, tone }: HealthStatusRowProps) {
+  const theme = useTheme();
+
   return (
-    <View style={styles.row}>
+    <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', gap: theme.spacing.sm }}>
       <KineticText variant="labelCaps" color="textMuted">
         {label}
       </KineticText>
@@ -21,12 +23,3 @@ export function HealthStatusRow({ label = 'Status', status, tone }: HealthStatus
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    gap: uiSpacing.sm
-  }
-});

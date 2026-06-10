@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
 import { KineticText } from '../atoms';
-import { uiSpacing } from '../uiTokens';
+import { useTheme } from '../themeContext';
 
 export interface DashboardTemplateProps {
   title: string;
@@ -12,26 +12,22 @@ export interface DashboardTemplateProps {
   spacing?: number;
 }
 
-export function DashboardTemplate({ title, subtitle, navigation, children, spacing = uiSpacing.lg }: DashboardTemplateProps) {
+export function DashboardTemplate({ title, subtitle, navigation, children, spacing }: DashboardTemplateProps) {
+  const theme = useTheme();
+  const gapSpacing = spacing ?? theme.spacing.lg;
+
   return (
-    <View style={[styles.container, { gap: spacing }]}>
+    <View style={{ gap: gapSpacing }}>
       {navigation}
-      <View style={styles.header}>
-        <KineticText variant="headingXL">{title}</KineticText>
-        <KineticText variant="subheading" color="textSecondary">
-          {subtitle}
-        </KineticText>
-      </View>
+      {title ? (
+        <View style={{ gap: theme.spacing.sm }}>
+          <KineticText variant="headingXL">{title}</KineticText>
+          <KineticText variant="subheading" color="textSecondary">
+            {subtitle}
+          </KineticText>
+        </View>
+      ) : null}
       {children}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    gap: uiSpacing.lg
-  },
-  header: {
-    gap: uiSpacing.sm
-  }
-});

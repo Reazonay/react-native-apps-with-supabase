@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+  <title>FORGE Admin - Health</title>
+  <style>
+    :root {
+      --bg-color: #0a0a05;
+      --surface: #11110a;
+      --surface-variant: #1a1a0f;
+      --border: #2a3a4a;
+      --primary: #99f1f3; /* Cyan Admin Accent */
+      --text-main: #ffffff;
+      --text-muted: #a8a892;
+      --danger: #ff5544;
+      --danger-bg: rgba(255, 85, 68, 0.1);
+      --success: #88d982;
+      --success-bg: rgba(136, 217, 130, 0.1);
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* --- Header --- */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px 12px 24px;
+      background: rgba(10, 10, 5, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 50;
+      position: sticky;
+      top: 0;
+    }
+
+    .brand {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--text-main);
+      letter-spacing: -1px;
+      text-shadow: 0 0 10px rgba(153, 241, 243, 0.4);
+    }
+    .brand span {
+      color: var(--primary);
+    }
+
+    .profile-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #000;
+    }
+
+    /* --- Main Content --- */
+    main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+      padding-bottom: 100px; /* Space for navbar */
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      margin: 0 0 8px 0;
+    }
+
+    p.subtitle {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin: 0 0 32px 0;
+      line-height: 1.5;
+    }
+
+    /* Health Cards */
+    .health-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .health-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .health-icon-bg {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .health-icon-bg.success { background: var(--success-bg); color: var(--success); }
+    .health-icon-bg.danger { background: var(--danger-bg); color: var(--danger); }
+
+    .health-icon {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .health-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 0 4px 0;
+    }
+
+    .health-status {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .text-success { color: var(--success); }
+    .text-danger { color: var(--danger); }
+
+    .health-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin: 0 0 20px 0;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      background: rgba(153, 241, 243, 0.1);
+      color: var(--primary);
+      border: 1px solid var(--primary);
+      font-weight: 800;
+      font-size: 14px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    /* --- Bottom Navigation --- */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 84px;
+      background: rgba(10, 10, 5, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding-bottom: 20px; /* Safe area inset */
+      z-index: 100;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-item.active {
+      color: var(--primary);
+    }
+
+    .nav-icon {
+      width: 24px;
+      height: 24px;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .nav-item.active .nav-icon {
+      fill: rgba(153, 241, 243, 0.2);
+    }
+
+    .nav-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand">FORGE <span>ADMIN</span></div>
+    <div class="profile-avatar">A</div>
+  </header>
+
+  <main>
+    <h1>Global Health Status</h1>
+    <p class="subtitle">System-Metriken und Infrastruktur-Überwachung.</p>
+
+    <div class="health-card">
+      <div class="health-header">
+        <div class="health-icon-bg success">
+          <svg class="health-icon" viewBox="0 0 24 24">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+        </div>
+        <div>
+          <h2 class="health-title">Supabase Database</h2>
+          <span class="health-status text-success">OPERATIONAL</span>
+        </div>
+      </div>
+      <p class="health-desc">Die Verbindung zur PostgreSQL-Datenbank in Supabase ist stabil. Avg Latency: 42ms.</p>
+    </div>
+
+    <div class="health-card">
+      <div class="health-header">
+        <div class="health-icon-bg danger">
+          <svg class="health-icon" viewBox="0 0 24 24">
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+            <line x1="12" y1="9" x2="12" y2="13"></line>
+            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+          </svg>
+        </div>
+        <div>
+          <h2 class="health-title">Storage Bucket</h2>
+          <span class="health-status text-danger">DEGRADED</span>
+        </div>
+      </div>
+      <p class="health-desc">Uploads von Profilbildern verzögern sich momentan. Traffic-Spitze registriert.</p>
+      <button class="btn">VIEW LOGS</button>
+    </div>
+  </main>
+
+  <nav class="bottom-nav">
+    <a href="admin-app-dashboard.html" class="nav-item">
+      <svg class="nav-icon" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="7" height="9" rx="1"></rect>
+        <rect x="14" y="3" width="7" height="5" rx="1"></rect>
+        <rect x="14" y="12" width="7" height="9" rx="1"></rect>
+        <rect x="3" y="16" width="7" height="5" rx="1"></rect>
+      </svg>
+      <span class="nav-label">OVERVIEW</span>
+    </a>
+    <a href="admin-app-health.html" class="nav-item active">
+      <svg class="nav-icon" viewBox="0 0 24 24">
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+      </svg>
+      <span class="nav-label">SYS HEALTH</span>
+    </a>
+  </nav>
+
+</body>
+</html>

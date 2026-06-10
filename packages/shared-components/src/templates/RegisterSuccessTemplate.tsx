@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
 import { KineticButton, KineticCard, KineticText } from '../atoms';
-import { uiSpacing } from '../uiTokens';
+import { useTheme } from '../themeContext';
 
 export interface RegisterSuccessTemplateProps {
   title: string;
@@ -13,10 +13,12 @@ export interface RegisterSuccessTemplateProps {
 }
 
 export function RegisterSuccessTemplate({ title, subtitle, navigation, actionLabel, onAction }: RegisterSuccessTemplateProps) {
+  const theme = useTheme();
+
   return (
-    <View style={styles.container}>
+    <View style={{ gap: theme.spacing.lg }}>
       {navigation}
-      <KineticCard variant="outline" gap={uiSpacing.sm}>
+      <KineticCard variant="outline" gap={theme.spacing.sm}>
         <KineticText variant="headingXL">{title}</KineticText>
         <KineticText variant="subheading" color="textSecondary">
           {subtitle}
@@ -26,9 +28,3 @@ export function RegisterSuccessTemplate({ title, subtitle, navigation, actionLab
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    gap: uiSpacing.lg
-  }
-});

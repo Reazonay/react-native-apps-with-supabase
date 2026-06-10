@@ -1,30 +1,34 @@
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
 import { KineticButton, KineticCard, KineticText } from '../atoms';
 import { FormField } from '../molecules';
-import { uiSpacing } from '../uiTokens';
+import { useTheme } from '../themeContext';
 
 export interface RegisterCardProps {
   title: string;
   description: string;
   submitLabel: string;
-  onSubmit: (payload: { fullName: string; email: string }) => void;
+  onSubmit: (payload: { fullName: string; email: string; password: string }) => void;
 }
 
 export function RegisterCard({ title, description, submitLabel, onSubmit }: RegisterCardProps) {
-  const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
+  const theme = useTheme();
+  const [fullName, setFullName]   = useState('');
+  const [email, setEmail]         = useState('');
+  const [password, setPassword]   = useState('');
 
-  const isEmailInvalid = email.length > 0 && !email.includes('@');
+  const isEmailInvalid    = email.length > 0 && !email.includes('@');
+  const isPasswordInvalid = password.length > 0 && password.length < 6;
 
   return (
-    <KineticCard variant="outline" gap={uiSpacing.md}>
+    <KineticCard variant="outline" gap={theme.spacing.md}>
       <KineticText variant="headingXL">{title}</KineticText>
       <KineticText variant="subheading" color="textSecondary">
         {description}
       </KineticText>
-      <View style={styles.form}>
+
+      <View style={{ gap: theme.spacing.sm }}>
         <FormField
           label="Name"
           value={fullName}
@@ -39,18 +43,22 @@ export function RegisterCard({ title, description, submitLabel, onSubmit }: Regi
           hasError={isEmailInvalid}
           onChangeText={setEmail}
         />
+        <FormField
+          label="Passwort"
+          value={password}
+          placeholder="Mindestens 6 Zeichen"
+          helperText={isPasswordInvalid ? 'Passwort muss mindestens 6 Zeichen haben.' : undefined}
+          hasError={isPasswordInvalid}
+          onChangeText={setPassword}
+          secureTextEntry
+        />
       </View>
+
       <KineticButton
         label={submitLabel}
         variant="primary"
-        onPress={() => onSubmit({ fullName, email })}
+        onPress={() => onSubmit({ fullName, email, password })}
       />
     </KineticCard>
   );
 }
-
-const styles = StyleSheet.create({
-  form: {
-    gap: uiSpacing.sm
-  }
-});

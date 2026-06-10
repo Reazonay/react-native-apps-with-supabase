@@ -2,18 +2,18 @@
 	"servers": {
 		"supabase": {
 			"type": "http",
-			"url": "https://mcp.supabase.com/mcp?project_ref=${input:supabase-project-ref}"
+			"url": "https://mcp.supabase.com/mcp?project_ref=jgvklaignipkraloacnx"
 		},
 		"storybook-mcp-server": {
 			"url": "http://localhost:6006/mcp",
 			"type": "http"
+		},
+		"stitch": {
+			"type": "http",
+			"url": "https://stitch.googleapis.com/mcp",
+			"headers": {
+				"X-Goog-Api-Key": "<YOUR_GCP_API_KEY>"
+			}
 		}
-	},
-	"inputs": [
-		{
-			"id": "supabase-project-ref",
-			"type": "promptString",
-			"description": "Supabase project ref (for example: abcdefghijklmnop)"
-		}
-	]
+	}
 }

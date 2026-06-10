@@ -1,21 +1,21 @@
 export const kineticColors = {
-  background: '#141408',
-  surfaceContainerLow: '#1d1c10',
-  surfaceContainer: '#212013',
-  surfaceContainerHigh: '#2b2b1d',
-  surfaceVariant: '#363527',
-  surfaceBright: '#3b3a2b',
-  outline: '#949277',
-  outlineVariant: '#494832',
-  onBackground: '#e6e3ce',
-  onSurface: '#e6e3ce',
-  onSurfaceVariant: '#cbc8ab',
+  background: '#0a0a05',
+  surfaceContainerLow: '#11110a',
+  surfaceContainer: '#1a1a0f',
+  surfaceContainerHigh: '#222214',
+  surfaceVariant: '#2d2d1f',
+  surfaceBright: '#333325',
+  outline: '#555540',
+  outlineVariant: '#333322',
+  onBackground: '#ffffff',
+  onSurface: '#f5f5f0',
+  onSurfaceVariant: '#a8a892',
   primary: '#ede900',
-  primaryDim: '#d0cc00',
-  onPrimary: '#1d1d00',
+  primaryDim: '#c4c000',
+  onPrimary: '#0a0a05',
   secondary: '#a4c9ff',
   tertiary: '#99f1f3',
-  error: '#ffb4ab'
+  error: '#ff5544'
 } as const;
 
 export const kineticSpacing = {

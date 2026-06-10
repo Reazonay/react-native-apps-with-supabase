@@ -1,7 +1,7 @@
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
 import { KineticInput, KineticText } from '../atoms';
-import { uiSpacing } from '../uiTokens';
+import { useTheme } from '../themeContext';
 
 export interface FormFieldProps {
   label: string;
@@ -9,27 +9,24 @@ export interface FormFieldProps {
   placeholder?: string;
   helperText?: string;
   hasError?: boolean;
+  secureTextEntry?: boolean;
   onChangeText: (value: string) => void;
 }
 
-export function FormField({ label, value, placeholder, helperText, hasError = false, onChangeText }: FormFieldProps) {
+export function FormField({ label, value, placeholder, helperText, hasError = false, secureTextEntry = false, onChangeText }: FormFieldProps) {
+  const theme = useTheme();
+
   return (
-    <View style={styles.field}>
+    <View style={{ gap: theme.spacing.xs }}>
       <KineticText variant="labelCaps" color="textMuted">
         {label}
       </KineticText>
-      <KineticInput value={value} placeholder={placeholder} hasError={hasError} onChangeText={onChangeText} />
+      <KineticInput value={value} placeholder={placeholder} hasError={hasError} secureTextEntry={secureTextEntry} onChangeText={onChangeText} />
       {helperText ? (
-        <KineticText variant="body" color={hasError ? 'statusErrorText' : 'textSecondary'}>
+        <KineticText variant="body" color={hasError ? 'errorBg' : 'textSecondary'}>
           {helperText}
         </KineticText>
       ) : null}
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  field: {
-    gap: uiSpacing.xs
-  }
-});

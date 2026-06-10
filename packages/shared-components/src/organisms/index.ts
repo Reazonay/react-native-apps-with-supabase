@@ -6,3 +6,6 @@ export { AdminWorkoutGrid } from './AdminWorkoutGrid';
 export type { AdminWorkoutGridProps } from './AdminWorkoutGrid';
 export { RegisterCard } from './RegisterCard';
 export type { RegisterCardProps } from './RegisterCard';
+export { HeroSection } from './HeroSection';
+export type { HeroSectionProps } from './HeroSection';
+export { StatsBentoGrid } from './StatsBentoGrid';

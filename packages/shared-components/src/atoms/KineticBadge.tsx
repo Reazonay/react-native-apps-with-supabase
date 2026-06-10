@@ -1,6 +1,6 @@
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
-import { uiColors, uiRadius, uiSpacing, uiTypography } from '../uiTokens';
+import { useTheme } from '../themeContext';
 import { KineticText } from './KineticText';
 
 export type KineticBadgeTone = 'success' | 'neutral' | 'warning' | 'error';
@@ -11,47 +11,54 @@ export interface KineticBadgeProps {
 }
 
 export function KineticBadge({ label, tone = 'neutral' }: KineticBadgeProps) {
+  const theme = useTheme();
+
+  const getBadgeColors = () => {
+    switch (tone) {
+      case 'success':
+        return {
+          bg: theme.colors.successBg,
+          text: theme.colors.successText,
+        };
+      case 'warning':
+        return {
+          bg: theme.colors.warningBg,
+          text: theme.colors.warningText,
+        };
+      case 'error':
+        return {
+          bg: theme.colors.errorBg,
+          text: theme.colors.errorText,
+        };
+      default: // neutral
+        return {
+          bg: theme.colors.border,
+          text: theme.colors.textSecondary,
+        };
+    }
+  };
+
+  const colors = getBadgeColors();
+
   return (
-    <View style={[styles.base, styles[tone]]}>
-      <KineticText variant="body" style={[styles.label, styles[`${tone}Label`]]}>
+    <View
+      style={{
+        borderRadius: theme.radius.pill,
+        paddingHorizontal: theme.spacing.sm,
+        paddingVertical: 6,
+        backgroundColor: colors.bg,
+        alignSelf: 'flex-start', // prevent stretching
+      }}
+    >
+      <KineticText
+        variant="body"
+        style={{
+          color: colors.text,
+          fontWeight: '700',
+        }}
+      >
         {label}
       </KineticText>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  base: {
-    borderRadius: uiRadius.pill,
-    paddingHorizontal: uiSpacing.sm,
-    paddingVertical: 6
-  },
-  success: {
-    backgroundColor: uiColors.badgeSuccessBg
-  },
-  neutral: {
-    backgroundColor: uiColors.surfaceBorder
-  },
-  warning: {
-    backgroundColor: uiColors.statusLoadingBg
-  },
-  error: {
-    backgroundColor: uiColors.statusErrorBg
-  },
-  label: {
-    ...uiTypography.body,
-    fontWeight: '700'
-  },
-  successLabel: {
-    color: uiColors.badgeSuccessText
-  },
-  neutralLabel: {
-    color: uiColors.navInactive
-  },
-  warningLabel: {
-    color: uiColors.statusLoadingText
-  },
-  errorLabel: {
-    color: uiColors.statusErrorText
-  }
-});

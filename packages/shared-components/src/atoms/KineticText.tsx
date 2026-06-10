@@ -1,10 +1,11 @@
 import type { TextProps } from 'react-native';
-import { StyleSheet, Text } from 'react-native';
+import { Text } from 'react-native';
 
-import { uiColors, uiTypography } from '../uiTokens';
+import { useTheme } from '../themeContext';
+import type { ThemeColors, ThemeTypography } from '../themeContext';
 
-export type KineticTextVariant = keyof typeof uiTypography;
-export type KineticTextColor = keyof typeof uiColors;
+export type KineticTextVariant = keyof ThemeTypography;
+export type KineticTextColor = keyof ThemeColors;
 
 export interface KineticTextProps extends TextProps {
   variant?: KineticTextVariant;
@@ -13,22 +14,18 @@ export interface KineticTextProps extends TextProps {
 }
 
 export function KineticText({ variant = 'body', color = 'textPrimary', align = 'left', style, ...props }: KineticTextProps) {
+  const theme = useTheme();
+  const textColor = theme.colors[color] || theme.colors.textPrimary;
+  
   return (
     <Text
       {...props}
-      style={[styles.base, styles[variant], { color: uiColors[color], textAlign: align }, style]}
+      style={[
+        { color: textColor, textAlign: align },
+        theme.typography[variant],
+        style
+      ]}
     />
   );
 }
 
-const styles = StyleSheet.create({
-  base: {
-    color: uiColors.textPrimary
-  },
-  headingXL: uiTypography.headingXL,
-  headingLG: uiTypography.headingLG,
-  subheading: uiTypography.subheading,
-  title: uiTypography.title,
-  body: uiTypography.body,
-  labelCaps: uiTypography.labelCaps
-});

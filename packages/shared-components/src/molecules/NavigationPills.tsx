@@ -1,7 +1,7 @@
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 
 import { KineticButton } from '../atoms';
-import { uiSpacing } from '../uiTokens';
+import { useTheme } from '../themeContext';
 
 export interface NavigationPillsItem {
   key: string;
@@ -15,8 +15,10 @@ export interface NavigationPillsProps {
 }
 
 export function NavigationPills({ items }: NavigationPillsProps) {
+  const theme = useTheme();
+
   return (
-    <View style={styles.row}>
+    <View style={{ flexDirection: 'row', gap: theme.spacing.sm }}>
       {items.map((item) => (
         <KineticButton
           key={item.key}
@@ -28,10 +30,3 @@ export function NavigationPills({ items }: NavigationPillsProps) {
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  row: {
-    flexDirection: 'row',
-    gap: uiSpacing.sm
-  }
-});
